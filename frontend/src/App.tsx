@@ -1,7 +1,13 @@
+import React from "react";
 import tw, { styled } from "twin.macro";
+import Router from "./app/routes";
 
-function App() {
-    return <div className="App">Hello World!</div>;
-}
+const App: React.FC = () => {
+    return (
+        <>
+            <Router />
+        </>
+    );
+};
 
 export default App;

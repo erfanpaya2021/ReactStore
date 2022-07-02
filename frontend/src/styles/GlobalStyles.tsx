@@ -14,6 +14,16 @@ const customStyles = css`
 
     body {
         font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        ${tw`
+            bg-gray-100
+            text-slate-700
+        `}
+    }
+
+    ul,
+    li {
+        list-style: none;
     }
 `;
 
