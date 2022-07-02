@@ -1,7 +1,7 @@
 import React from "react";
 import tw from "twin.macro";
 import { Link } from "react-router-dom";
-import { FaBars, FaAngleRight } from "react-icons/fa";
+import { FaBars, FaAngleRight, FaCartPlus } from "react-icons/fa";
 
 import { Container } from "../../../styles";
 
@@ -29,9 +29,14 @@ export const Header: React.FC = () => {
                             </styles.NavLink>
                         </li>
                         <li>
-                            <styles.NavLink to={"/"}>About</styles.NavLink>
+                            <styles.NavLink to={"/about"}>About</styles.NavLink>
                         </li>
                     </styles.Navbar>
+
+                    <styles.CartStatus>
+                        <FaCartPlus tw="text-4xl" />
+                        <span>0</span>
+                    </styles.CartStatus>
                 </>
             </Container>
         </styles.Header>

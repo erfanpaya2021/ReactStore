@@ -36,7 +36,7 @@ export const Navbar = styled.ul`
         md:flex
         md:space-x-4
         md:w-full
-        md:ml-24
+        md:ml-12
     `}
 `;
 
@@ -50,4 +50,30 @@ export const NavLink = styled(Link)`
         md:text-lg
         hover:text-green-300
     `}
+`;
+
+export const CartStatus = styled.div`
+    ${tw`
+        relative
+        hidden
+        cursor-pointer
+        md:block
+    `}
+
+    & > span {
+        ${tw`
+            absolute
+            -top-1
+            -right-2
+            w-5
+            h-5
+            rounded-full
+            font-bold
+            text-center
+            text-lg
+            text-slate-700
+            bg-green-300
+        `}
+        line-height: 1.25rem;
+    }
 `;
