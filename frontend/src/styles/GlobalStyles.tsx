@@ -16,7 +16,7 @@ const customStyles = css`
         font-family: "Montserrat", sans-serif;
         font-weight: 400;
         ${tw`
-            bg-gray-100
+            bg-white
             text-slate-700
         `}
     }

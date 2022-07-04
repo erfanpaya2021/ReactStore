@@ -1,7 +1,9 @@
 import tw, { styled } from "twin.macro";
 import Image from "../../assets/images/shopping.svg";
 
-export const Home = styled.section`
+export const Home = styled.section``;
+
+export const HeroSection = styled.div`
     ${tw`
         flex flex-col-reverse justify-center items-center py-12 gap-8
         md:flex-row md:justify-around md:items-center
