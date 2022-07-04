@@ -33,7 +33,7 @@ export const Products: React.FC = () => {
     const { data: categories } = useQuery("categories", getCategories);
 
     const navigateToCategory = (categoryName: string) =>
-        navigate(`/products/category/${categoryName}`);
+        navigate(`/products/${categoryName}`);
 
     if (isLoading) {
         return <Spinner />;

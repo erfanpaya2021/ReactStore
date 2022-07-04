@@ -6,6 +6,8 @@ import { About } from "../pages/about";
 import { Home } from "../pages/home";
 import { Products } from "../pages/products";
 import { Category } from "../pages/products/category";
+import { Cart } from "../pages/cart";
+import { NotFound } from "../pages/notFound";
 
 const Router: React.FC = () => {
     return (
@@ -22,6 +24,8 @@ const Router: React.FC = () => {
                             />
                         </Route>
                         <Route path="about" element={<About />} />
+                        <Route path="cart" element={<Cart />} />
+                        <Route path="*" element={<NotFound />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

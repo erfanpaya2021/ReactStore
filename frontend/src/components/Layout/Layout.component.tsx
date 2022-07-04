@@ -8,7 +8,7 @@ export const Layout: React.FC = () => {
     return (
         <>
             <Header />
-            <Container>
+            <Container as={"main"}>
                 <Outlet />
             </Container>
         </>

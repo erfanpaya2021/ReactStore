@@ -30,14 +30,30 @@ export const HeaderTitle = styled.h1`
     }
 `;
 
+interface NavProps {
+    isShown: boolean;
+}
+
 export const Navbar = styled.ul`
     ${tw`
-        hidden
+        absolute
+        top-0
+        right[-100%]
+        transition-all
+        md:static
         md:flex
         md:space-x-4
         md:w-full
         md:ml-12
     `}
+
+    ${(props: NavProps) =>
+        props.isShown &&
+        tw`
+        absolute top-0 right-0 z-50
+        flex flex-col items-center space-y-8 w-full h-full pt-20
+        bg-slate-900 bg-opacity-90
+    `};
 `;
 
 export const NavLink = styled(Link)`
@@ -46,6 +62,7 @@ export const NavLink = styled(Link)`
         items-center
         gap-1
         transition-colors
+        text-2xl
         md:font-medium
         md:text-lg
         hover:text-green-300
