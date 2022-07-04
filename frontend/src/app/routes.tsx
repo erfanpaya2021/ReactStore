@@ -6,8 +6,9 @@ import { About } from "../pages/about";
 import { Home } from "../pages/home";
 import { Products } from "../pages/products";
 import { Category } from "../pages/products/category";
+import { SingleProduct } from "../pages/products/single-product";
 import { Cart } from "../pages/cart";
-import { NotFound } from "../pages/notFound";
+import { NotFound } from "../pages/not-found";
 
 const Router: React.FC = () => {
     return (
@@ -18,8 +19,9 @@ const Router: React.FC = () => {
                         <Route index element={<Home />} />
                         <Route path="products">
                             <Route index element={<Products />} />
+                            <Route path=":id" element={<SingleProduct />} />
                             <Route
-                                path=":categoryName"
+                                path="category/:categoryName"
                                 element={<Category />}
                             />
                         </Route>

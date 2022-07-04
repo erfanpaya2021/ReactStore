@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { AxiosError } from "axios";
 
-import { getProductsByCategory } from "../../../services/products/getProductsByCategory";
+import { getProductsByCategory } from "../../../services/products";
 
 import { List } from "../list";
 import { Spinner } from "../../../components/spinner";
@@ -12,12 +12,12 @@ import { SectionTitle } from "../../../styles";
 
 import * as StyledElements from "./Category.styled";
 
+type Params = {
+    categoryName: string;
+};
+
 export const Category: React.FC = () => {
-    const params = useParams();
-    let categoryName: string = "";
-    if (params.categoryName) {
-        categoryName = params.categoryName;
-    }
+    const { categoryName } = useParams<Params>();
 
     const {
         data: products,
@@ -25,7 +25,7 @@ export const Category: React.FC = () => {
         isLoading,
         isSuccess,
         isError,
-    } = useQuery(categoryName, () => getProductsByCategory(categoryName));
+    } = useQuery("categoryName", () => getProductsByCategory(categoryName));
 
     if (isLoading) {
         return <Spinner />;
