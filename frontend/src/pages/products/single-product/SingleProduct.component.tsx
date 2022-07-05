@@ -5,8 +5,13 @@ import { useQuery } from "react-query";
 import { AxiosError } from "axios";
 import { FaStar } from "react-icons/fa";
 
+import { CartItem } from "../../../models";
+
 // Services
 import { getProductById } from "../../../services/products";
+
+// Context
+import { useCartContext } from "../../../context";
 
 // Components
 import { Spinner } from "../../../components/spinner";
@@ -22,6 +27,7 @@ type Params = {
 };
 
 export const SingleProduct: React.FC = () => {
+    const { addItem } = useCartContext();
     const { id } = useParams<Params>();
     const navigate = useNavigate();
 
@@ -29,9 +35,22 @@ export const SingleProduct: React.FC = () => {
         data: product,
         error,
         isLoading,
-        isSuccess,
         isError,
     } = useQuery("singleProduct", () => getProductById(id));
+
+    const addToCartHandler = () => {
+        if (product) {
+            let cartItem: CartItem = {
+                id: product?.id,
+                image: product?.image,
+                title: product?.title,
+                price: product?.price,
+                quantity: 1,
+                total: product?.price,
+            };
+            addItem(cartItem);
+        }
+    };
 
     const navigateToCart = () => navigate("/cart");
 
@@ -60,7 +79,9 @@ export const SingleProduct: React.FC = () => {
                     {product?.description}
                 </StyledElements.Description>
                 <StyledElements.ButtonContainer>
-                    <StyledElements.Button>Add To Cart </StyledElements.Button>
+                    <StyledElements.Button onClick={addToCartHandler}>
+                        Add To Cart
+                    </StyledElements.Button>
                     <StyledElements.Button onClick={navigateToCart}>
                         Go To Cart
                     </StyledElements.Button>

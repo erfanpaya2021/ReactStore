@@ -3,11 +3,15 @@ import tw from "twin.macro";
 import { Link } from "react-router-dom";
 import { FaBars, FaAngleRight, FaCartPlus, FaTimes } from "react-icons/fa";
 
+// Context Hook
+import { useCartContext } from "../../../context";
+
 import { Container } from "../../../styles";
 
 import * as StyledElements from "./Header.styled";
 
 export const Header: React.FC = () => {
+    const { items } = useCartContext();
     const [menuShown, setMenuShown] = useState<boolean>(false);
 
     const openMenuHandler = (): void => setMenuShown(true);
@@ -75,7 +79,12 @@ export const Header: React.FC = () => {
                             to={"cart"}
                         >
                             <FaCartPlus tw="text-4xl" />
-                            <span>0</span>
+                            <span>
+                                {items.reduce(
+                                    (total, item) => total + item.quantity,
+                                    0,
+                                )}
+                            </span>
                         </StyledElements.CartStatus>
                     </StyledElements.Navbar>
                 </>
