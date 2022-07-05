@@ -32,6 +32,10 @@ export const Category = styled.span`
     ${tw`text-sm font-medium text-gray-400 uppercase
         sm:text-lg
     `}
+
+    &  > a {
+        ${tw`justify-center sm:justify-start`}
+    }
 `;
 export const Title = styled.h2`
     ${tw`
