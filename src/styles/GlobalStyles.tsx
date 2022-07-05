@@ -18,6 +18,7 @@ const customStyles = css`
         ${tw`
             bg-white
             text-slate-700
+            overflow-x-hidden
         `}
     }
 
