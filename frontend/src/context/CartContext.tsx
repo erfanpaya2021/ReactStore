@@ -28,13 +28,19 @@ interface ProviderProps {
 
 export const CartContextProvider: React.FC<ProviderProps> = ({ children }) => {
     const { state, setState } = useLocalStorage<CartItem[]>("cart");
+    const { state: tPrice, setState: setTprice } =
+        useLocalStorage<number>("total-price");
     const [cart, setCart] = useState<CartItem[]>(state ? state : []);
-    const [totalPrice, setTotalPrice] = useState<number>(0);
+    const [totalPrice, setTotalPrice] = useState<number>(tPrice ? tPrice : 0);
 
-    const calculateTotalPrice = (updatedList: CartItem[]) =>
-        setTotalPrice(
-            updatedList.reduce((total, item) => total + item.total, 0),
+    const calculateTotalPrice = (updatedList: CartItem[]) => {
+        const updatedTotalPrice = updatedList.reduce(
+            (total, item) => total + item.total,
+            0,
         );
+        setTotalPrice(updatedTotalPrice);
+        setTprice(updatedTotalPrice);
+    };
 
     const addItem = (newProduct: CartItem) => {
         if (cart.find(product => product.id === newProduct.id)) return;
