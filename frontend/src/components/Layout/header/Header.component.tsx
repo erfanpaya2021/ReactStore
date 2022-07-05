@@ -8,15 +8,22 @@ import { Container } from "../../../styles";
 import * as StyledElements from "./Header.styled";
 
 export const Header: React.FC = () => {
-    const [menuShown, setMenuShown] = useState<boolean>(true);
+    const [menuShown, setMenuShown] = useState<boolean>(false);
 
     const openMenuHandler = (): void => setMenuShown(true);
     const closeMenuHandler = (): void => setMenuShown(false);
 
+    // close menu if window size bigger than 768px
     useEffect(() => {
-        if (window.innerWidth >= 768) {
-            closeMenuHandler();
-        }
+        const checkSizeForMenu = () => {
+            if (window.innerWidth >= 768) closeMenuHandler();
+        };
+
+        window.addEventListener("resize", checkSizeForMenu);
+
+        return () => {
+            window.removeEventListener("resize", checkSizeForMenu);
+        };
     }, [window.innerWidth]);
 
     return (
@@ -62,11 +69,15 @@ export const Header: React.FC = () => {
                                 About
                             </StyledElements.NavLink>
                         </li>
+
+                        <StyledElements.CartStatus
+                            onClick={closeMenuHandler}
+                            to={"cart"}
+                        >
+                            <FaCartPlus tw="text-4xl" />
+                            <span>0</span>
+                        </StyledElements.CartStatus>
                     </StyledElements.Navbar>
-                    <StyledElements.CartStatus>
-                        <FaCartPlus tw="text-4xl" />
-                        <span>0</span>
-                    </StyledElements.CartStatus>
                 </>
             </Container>
         </StyledElements.Header>

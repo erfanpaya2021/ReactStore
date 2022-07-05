@@ -69,13 +69,18 @@ export const NavLink = styled(Link)`
     `}
 `;
 
-export const CartStatus = styled.div`
+export const CartStatus = styled(Link)`
     ${tw`
         relative
-        hidden
+        flex-1
+        flex
+        justify-center
         cursor-pointer
-        md:block
     `}
+
+    & > svg {
+        margin-left: auto;
+    }
 
     & > span {
         ${tw`
