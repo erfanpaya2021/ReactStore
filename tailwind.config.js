@@ -77,6 +77,8 @@ module.exports = {
             ping: "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
             pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
             bounce: "bounce 1s infinite",
+            OpenMenuAnimation: "OpenMenuAnimation 500ms ease-in-out",
+            CloseMenuAnimation: "CloseMenuAnimation 500ms ease-in-out",
         },
         backdropBlur: theme => theme("blur"),
         backdropBrightness: theme => theme("brightness"),
@@ -509,6 +511,30 @@ module.exports = {
                 "50%": {
                     transform: "none",
                     animationTimingFunction: "cubic-bezier(0,0,0.2,1)",
+                },
+            },
+            OpenMenuAnimation: {
+                "0%": {
+                    display: "none",
+                    right: "-100%",
+                },
+                "20%": {
+                    display: "flex",
+                    right: "-80%",
+                },
+                "100%": {
+                    display: "flex",
+                    right: "0%",
+                },
+            },
+            CloseMenuAnimation: {
+                "0%, 20%": {
+                    display: "flex",
+                    right: "0%",
+                },
+                "100%": {
+                    display: "none",
+                    right: "-100%",
                 },
             },
         },

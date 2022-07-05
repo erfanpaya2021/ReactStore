@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import tw, { styled } from "twin.macro";
+import { keyframes } from "@emotion/react";
 
 export const Header = styled.header`
     ${tw`
@@ -39,21 +40,21 @@ export const Navbar = styled.ul`
         absolute
         top-0
         right[-100%]
-        transition-all
+        hidden
+        animate-OpenMenuAnimation
         md:static
         md:flex
         md:space-x-4
         md:w-full
         md:ml-12
-    `}
+        `}
 
     ${(props: NavProps) =>
         props.isShown &&
-        tw`
+        tw` 
         absolute top-0 right-0 z-50
         flex flex-col items-center space-y-8 w-full h-full pt-20
-        bg-slate-900 bg-opacity-90
-    `};
+        bg-slate-900 bg-opacity-90`}
 `;
 
 export const NavLink = styled(Link)`
