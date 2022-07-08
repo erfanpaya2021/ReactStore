@@ -18,9 +18,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ## Technologies
 
 -   [React](https://reactjs.org)
--   [Typescript](https://typescriptlang.org/)
+-   [Typescript](https://typescriptlang.org)
 -   [Twin.Macro](https://github.com/ben-rogerson/twin.macro)
--   [Axios](https://axios.com/)
+-   [Tailwindcss](https://tailwindcss.com)
+-   [Emotion](https://emotion.sh)
+-   [React Query](https://react-query.tanstack.com)
+-   [Axios](https://axios.com)
 
 ## Contact with Me
 
