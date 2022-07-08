@@ -34,7 +34,7 @@ export const SingleProduct: React.FC = () => {
     const {
         data: product,
         error,
-        isLoading,
+        isFetching,
         isError,
     } = useQuery("singleProduct", () => getProductById(id));
 
@@ -54,7 +54,7 @@ export const SingleProduct: React.FC = () => {
 
     const navigateToCart = () => navigate("/cart");
 
-    if (isLoading) {
+    if (isFetching) {
         return <Spinner />;
     }
 

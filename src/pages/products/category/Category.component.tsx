@@ -22,12 +22,12 @@ export const Category: React.FC = () => {
     const {
         data: products,
         error,
-        isLoading,
+        isFetching,
         isSuccess,
         isError,
     } = useQuery("categoryName", () => getProductsByCategory(categoryName));
 
-    if (isLoading) {
+    if (isFetching) {
         return <Spinner />;
     }
 
