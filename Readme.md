@@ -13,7 +13,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ![React Store - Erfan Paya](https://i.ibb.co/bbPPS1y/store.png)
 
-#### [Demo 👀](reactstore-hp0098.netlify.app)
+## Demo
+#### Here is a working live demo : https://reactstore-hp0098.netlify.app/
 
 ## Technologies
 
